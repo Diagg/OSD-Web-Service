@@ -76,7 +76,7 @@ function Test-ADCredential
         } else {
             Add-Type -AssemblyName System.DirectoryServices.AccountManagement
             $DS = New-Object System.DirectoryServices.AccountManagement.PrincipalContext('domain')
-            $DS.ValidateCredentials($UserName, $Password)
+            $DS.ValidateCredentials($UserName, $Password,[System.DirectoryServices.AccountManagement.ContextOptions]'Negotiate')
         }
     }
 
